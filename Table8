@@ -1,0 +1,17 @@
+
+<table style="text-align:center"><caption><strong>Table 8. F and t-statistics of adverse childhood experience as the moderator.</strong></caption>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="7"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="7" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Trauma knowledge</td><td>Self-efficacy</td><td>Internal tools</td><td>Tradeoffs</td><td>Social support</td><td>Self-compassion</td><td>Leaving intention</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td><td>(5)</td><td>(6)</td><td>(7)</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Constant</td><td>2.94<sup>***</sup> (0.15)</td><td>56.39<sup>***</sup> (3.18)</td><td>4.11<sup>***</sup> (0.11)</td><td>2.68<sup>***</sup> (0.17)</td><td>3.87<sup>***</sup> (0.14)</td><td>3.09<sup>***</sup> (0.10)</td><td>2.11<sup>***</sup> (0.27)</td></tr>
+<tr><td style="text-align:left">Condition</td><td>1.34<sup>***</sup> (0.22)</td><td>-0.37 (4.61)</td><td>-0.15 (0.16)</td><td>0.07 (0.25)</td><td>-0.13 (0.21)</td><td>-0.21 (0.15)</td><td>0.19 (0.40)</td></tr>
+<tr><td style="text-align:left">ACE</td><td>0.10<sup>***</sup> (0.03)</td><td>0.40 (0.58)</td><td>-0.05<sup>**</sup> (0.02)</td><td>0.10<sup>***</sup> (0.03)</td><td>-0.03 (0.03)</td><td>-0.02 (0.02)</td><td>0.18<sup>***</sup> (0.05)</td></tr>
+<tr><td style="text-align:left">ConditionxACE</td><td>-0.12<sup>***</sup> (0.04)</td><td>-0.18 (0.88)</td><td>0.03 (0.03)</td><td>-0.002 (0.05)</td><td>0.03 (0.04)</td><td>0.02 (0.03)</td><td>-0.005 (0.07)</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>286</td><td>285</td><td>285</td><td>285</td><td>285</td><td>285</td><td>216</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.19</td><td>0.003</td><td>0.02</td><td>0.06</td><td>0.01</td><td>0.01</td><td>0.11</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.18</td><td>-0.01</td><td>0.01</td><td>0.05</td><td>-0.005</td><td>0.002</td><td>0.10</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>0.87</td><td>18.42</td><td>0.65</td><td>0.99</td><td>0.82</td><td>0.58</td><td>1.34</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>22.36<sup>***</sup></td><td>0.32</td><td>2.25<sup>*</sup></td><td>6.29<sup>***</sup></td><td>0.54</td><td>1.23</td><td>8.63<sup>***</sup></td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="7" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>

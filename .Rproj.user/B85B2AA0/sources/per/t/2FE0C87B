@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1615933765323.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2FE0C87B",
+    "lastKnownWriteTime" : 1615933576,
+    "last_content_update" : 1615933765323,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "212C0EF5",
+        "caption" : "Edu_count",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Edu_count&cache_key=212C0EF5",
+        "displayedObservations" : "10",
+        "environment" : "",
+        "expression" : "Edu_count",
+        "object" : "Edu_count",
+        "preview" : "0",
+        "totalObservations" : "10",
+        "variables" : "3"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

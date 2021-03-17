@@ -1,0 +1,2 @@
+"0","p1<-renderDygraph(dygraph(plot1))"
+"0","p2<-renderDygraph(dygraph(p1))"

@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1615425371760.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1677408349",
+    "id" : "2B53C19B",
+    "lastKnownWriteTime" : 1616020282,
+    "last_content_update" : 1616020283451,
+    "path" : "C:/Users/KKari/Dropbox/Data_Science/Dashboard/Kay's dashboard/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+        "cursorPosition" : "3198,27",
+        "last_setup_crc32" : "651007526a859f9e",
+        "scrollLine" : "3177",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

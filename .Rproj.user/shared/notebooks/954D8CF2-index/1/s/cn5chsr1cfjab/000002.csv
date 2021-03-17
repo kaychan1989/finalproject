@@ -1,0 +1,6 @@
+"0","#Add labels to each variable in the data frame created "
+"0","colnames(data)<-c(""Condition"", ""ACE"", ""BPD"", ""Fear"", "
+"0","                  ""Avoidance(mother)"", ""Anxiety (mother)"", "
+"0","                  ""Avoidance(father)"", ""Anxiety (father)"", "
+"0","                  ""NFC"", ""FI"", ""Self-efficacy"", ""Knowledge"","
+"0","                  ""Self-tools"", ""Tradeoffs"", ""Support"")"
