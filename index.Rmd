@@ -19,6 +19,8 @@ output:
       position: fixed
     }
     </style>
+    
+
 
 
 ```{r setup, include=FALSE}
@@ -3756,7 +3758,7 @@ p<-p+ scale_color_viridis_d("Confidence Interval")+
  
 ```
 
-```{r}
+```{r, fig.width=7, figh.height=7}
 p
 ```
 
@@ -3838,50 +3840,6 @@ The plot depicts the three-way interaction between conditions and rational think
 
 
 
-```{r}
-
-data<-rio::import(here::here("Bigdata.sav"))
-```
-
-```{r}
-Plot1data <- data %>% select("Mom_avoidance", "NFC", "Condition", "In_End")
-
-```
-
-
-
-```{r}
-Plot1data<-na.omit(Plot1data)
-```
-
-
-```{r}
- 
-Plot1data$Mom_avoidance <- cut(Plot1data$Mom_avoidance, breaks=c(1, 1.8, 2.72, 3.63, 5), include.lowest= TRUE)
-```
-
-
-
-
-```{r}
-Plot1data$Condition <- factor(Plot1data$Condition,
-levels = c(0,1),
-labels = c("Control" , "Treatment"))
-```
-
-
-```{r}
-
-Plot1data$Mom_avoidance <- factor(Plot1data$Mom_avoidance,
-levels = c("[1,1.8]"   ,  "(1.8,2.72]"  ,"(2.72,3.63]" ,"(3.63,5]" ),
-labels = c("Less than -1 SD", "-1SD to mean", "Mean to + 1SD", "More than+ 1SD"))
-
-
-
-
-```
-
-
 ```{r, fig.width=6}
 txt_data <- data.frame(
   NFC = rep(3.99, 4),
@@ -3958,7 +3916,7 @@ semPaths(model, "std", residuals =FALSE, sizeMan =  8, edge.label.cex = 1, inter
 
 
 
-Visualization (3 ways){.storyboard}
+3-ways interaction{.storyboard}
 ======
 
 ### Condition x NFC x Avoidance(mother) 
@@ -4038,7 +3996,7 @@ ggplot(Plot1data, aes(x  = NFC, y = In_End, color = Condition))+
 ```
 
 
-Visualization (2 way){.storyboard}
+2-ways interaction{.storyboard}
 ======
 
 ### Adverse childhood experience
