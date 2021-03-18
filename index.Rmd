@@ -56,23 +56,21 @@ library(cowplot)
 Research Background
 =================
 
-In response to a high prevalence of childhood trauma, which impacts approximatelt 61% of American adults [(CDC, 2021)] (https://www.cdc.gov/violenceprevention/aces/fastfact.html), and domestic violence, which affects more than one-fourth of American women [(CDC, 2021)] (https://ncadv.org/STATISTICS), the current randomized controlled trial examines the effects of trauma-informed messages (TIM) on attitudes towards domestic violence. As trauma and domestic violence often relate to psychosocial traits, such as borderline personality disorder symptoms, adverse childhood experiences, attachment styles towards a parental figure, information processing patterns (i.e., need for cognition and faith intuition), and fear of an intimate partner, those variables are examined as potential  moderators to identify vulnerable female groups. Assessed attitudinal outcomes include trauma knowledge, domestic violence self-efficacy, perceived internal resources to terminate an intimate abusive relationship, perceived tradeoffs, perceived social support, self-efficay, and intention to end the relationship.  The project features data visualization to provide a holistic understanding of TIM efficacy and effectiveness. 
-
+In response to a high prevalence of childhood trauma, which impacts approximately 61% of American adults [CDC, 2021](https://www.cdc.gov/violenceprevention/aces/fastfact.html), and domestic violence, which affects more than one-fourth of American women [NCADV, 2021](https://ncadv.org/STATISTICS), the current randomized controlled trial examines the effects of trauma-informed messages (TIM) on attitudes towards domestic violence. Psychological trauma and domestic violence are often related to psychosocial traits, such as borderline personality disorder symptoms, adverse childhood experiences (ACE), attachment styles towards a parental figure, information processing patterns (i.e., need for cognition (NFC) and faith intuition(FI)), and fear of an intimate partner. Those variables were examined as potential moderators to identify vulnerable female groups. Assessed attitudinal outcomes include trauma knowledge, domestic violence self-efficacy, perceived internal resources to terminate an intimate abusive relationship, perceived tradeoffs, perceived social support, self-efficacy, and an intention to end the relationship. The project features data visualization to provide a holistic understanding of TIM efficacy and effectiveness.
 
 **Participants**
 
-Participants are female MTurk workers (n = 289) self-reporting at least one of the six fear aspects of a current intimate partner using the fear scale () and at least one-adverse childhood experience on the ACE scale () .
+Participants are female MTurk workers (n = 289) self-reporting at least one of the six fear aspects of a current intimate partner on the Fear scale (SAMSHA, 2019) and at least one-adverse childhood experience on the ACE scale (CDC, 2021).
 
 **Method**
- 
-Participants were randomly assigned into a) treatment condition (reading a trauma-informed narrative about domestic violence), and b) control condition (reading a traitional narrative about domestic violence). Narratives in both experimental groups feature a fictional female character's experiences with her abusive parnter and a safety plan. A first-person narrative (i.e., using the pronoun "I") was employed across the two experimental conditions to avoid demographic biases. The trauma-informed condition features psychoeducaiton regarding the effects of trauma on one's cognition, emotion, and behaviors and empowerment. Prior the randomization process, participants answered questions regarding their psychosocial traits. Once participants read the narrative in their condition, they were asked to answer questions regarding domestic violence attitudes.
+
+Participants were randomly assigned to a) treatment condition (reading a trauma-informed narrative about domestic violence) or b) control condition (reading a classic story about domestic violence). Narratives in both experimental groups feature a fictional female character’s experiences with her abusive partner and a safety plan. A first-person narrative (i.e., using the pronoun “I”) was employed across the two experimental conditions to avoid demographic biases. The trauma-informed condition features psychoeducation regarding the effects of trauma on cognition, emotion, behaviors, and empowerment. Before the randomization process, participants answered questions regarding their psychosocial traits. Once participants read the narrative in their condition, they were asked to answer domestic violence attitudes questions.
 
 **Statistical analysis**
 
-Two- and three-way interactions between experimental conditions (IV), social information processing patterns (Moderator 1), and psychosocial traits (Moderator 3) were explored using R package. The analysis and visualization codes are embeded (please see Embeded Codes for the detail).
+Two- and three-way interactions between experimental conditions (IV), social information processing patterns (Moderator 1), and psychosocial traits (Moderator 2) were explored using R packages. The analysis and visualization codes are embedded (please see Source Code in the navigation bar for the detail).
 
-For more detail regarding research backgroud, method, and measurement, please email: karikarn@uoregon.edu.
-
+For more information regarding research background, method, and measurement, please email karikarn@uoregon.edu.
 
 
 Tables and results
@@ -82,7 +80,7 @@ column {.sidebar .tabset data-width=650}
 ---------------------
 ### Results
 
-This section features the results of two-ways and three-ways interaction between conditions, psychosocial traits, and information processing patterns: need for cognition (NFC) and faith intuition (FI). Only significant interaction models are featured in the tables.  
+This section features the results of two-ways and three-ways interaction between conditions, psychosocial traits, and information processing patterns: the need for cognition (NFC) and faith intuition (FI). Only significant interaction models are featured in the tables.  
 
 
 ### Three-ways interaction 
@@ -1176,11 +1174,11 @@ stargazer(model1Mavo, model2Mavo, model3Mavo, model4Mavo, model5Mavo, model6Mavo
 
 Row {.tabset data-height=500}
 ---------------------
-### Uncertainty 1(7)
-
 
 
 Below are uncertainty plots of significant results from the interaction tables. Uncertainty A(B) represents uncertainty from Table A column B. 
+
+### Uncertainty 1(7)
 
 
 ```{r}
@@ -1255,7 +1253,7 @@ p<-p+ scale_color_viridis_d("Confidence Interval")+
   geom_point() +
   coord_flip()+
   theme_minimal()+
-  theme(text = element_text(size = 12, family = "Calibri"), plot.title = element_text(hjust = 0.5, color = "#5c8761"))+
+  theme(text = element_text(size = 12, family = "Calibri"), plot.title = element_text(hjust = 0.5, color = "#5c8761"), legend.position = "bottom")+
   labs(title = "Standard errors of the model in Plot 1 \n across 80% CI, 90% CI, and 95%CI", x = "Estimates", y = "Predictors")
   
 ```
@@ -2647,7 +2645,7 @@ p
 ```
 
 
-### Table 12(1)
+### Uncertainty 12(1)
 
 
 ```{r}
@@ -2732,13 +2730,13 @@ p
 ```
 
 
-Row {.tabset data-height=800}
+Row {.tabset data-height=500}
 ---------------------
 
-This is comments
+Below are Johnson-Neyman (JN) plots of significant results from the interaction tables. Figure A(B) represents JN results of the interaction from Table A column B. 
 
 
-### Figure1
+### Figure 1(7)
 
 
 ```{r}
@@ -2773,6 +2771,718 @@ main.title = "3-ways interaction:condition, rational thinking, avoidance attachm
         
            
 ```
+
+### Figure 2(7)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "NFC", "Condition", "In_End")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(In_End~Condition*NFC*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, anxiety attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+### Figure 3(2)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_avoidance", "NFC", "Condition", "DVS_state")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(DVS_state~Condition*NFC*Dad_avoidance, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Dad_avoidance", jnplot = TRUE, 
+           mod2.labels = c("Mean of avoidance - SD", "Mean of avoidance", "Mean of avoidance + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, avoidance attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+### Figure 3(3)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_avoidance", "NFC", "Condition", "Empowerment_InternalTools")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_InternalTools~Condition*NFC*Dad_avoidance, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Dad_avoidance", jnplot = TRUE, 
+           mod2.labels = c("Mean of avoidance - SD", "Mean of avoidance", "Mean of avoidance + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, avoidance attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 3(5)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_avoidance", "NFC", "Condition", "Empowerment_ExpectationSupport")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_ExpectationSupport~Condition*NFC*Dad_avoidance, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Dad_avoidance", jnplot = TRUE, 
+           mod2.labels = c("Mean of avoidance - SD", "Mean of avoidance", "Mean of avoidance + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, avoidance attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 3(6)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_avoidance", "NFC", "Condition", "SelfCompassion")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(SelfCompassion~Condition*NFC*Dad_avoidance, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Dad_avoidance", jnplot = TRUE, 
+           mod2.labels = c("Mean of avoidance - SD", "Mean of avoidance", "Mean of avoidance + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, avoidance attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+### Figure 4(5)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_anxiety", "NFC", "Condition", "Empowerment_ExpectationSupport")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_ExpectationSupport~Condition*NFC*Dad_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "NFC", mod2 = "Dad_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Rational thinking pattern",
+main.title = "3-ways interaction:condition, rational thinking, anxiety attachment")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 5(3)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("ACE", "FI", "Condition", "Empowerment_InternalTools")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_InternalTools~Condition*FI*ACE, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "ACE", jnplot = TRUE, 
+           mod2.labels = c("Mean of ACE - SD", "Mean of ACE", "Mean of ACE + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, ACE")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 5(5)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("ACE", "FI", "Condition", "Empowerment_ExpectationSupport")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_ExpectationSupport~Condition*FI*ACE, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "ACE", jnplot = TRUE, 
+           mod2.labels = c("Mean of ACE - SD", "Mean of ACE", "Mean of ACE + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, ACE")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 6(5)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Fear", "FI", "Condition", "Empowerment_ExpectationSupport")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_ExpectationSupport~Condition*FI*Fear, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "Fear", jnplot = TRUE, 
+           mod2.labels = c("Mean of fear - SD", "Mean of fear", "Mean of fear + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, fear")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 7(1)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "FI", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*FI*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+
+### Figure 7(2)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "FI", "Condition", "DVS_state")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(DVS_state~Condition*FI*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 7(4)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "FI", "Condition", "Empowerment_Tradeoffs")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_Tradeoffs~Condition*FI*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "FI", mod2 = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Emotional thinking pattern",
+main.title = "3-ways interaction:condition, emotional thinking, anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 8(1)
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("ACE", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*ACE, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "ACE", jnplot = TRUE, 
+           mod2.labels = c("Mean of ACE - SD", "Mean of ACE", "Mean of ACE + 1 SD"),
+  
+                
+x.label = "Adverse childhood experiences",
+main.title = "2-ways interaction:condition and ACE")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+### Figure 9(1)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Fear", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*Fear, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "Fear", jnplot = TRUE, 
+           mod2.labels = c("Mean of fear - SD", "Mean of fear", "Mean of fear + 1 SD"),
+  
+                
+x.label = "Fear of an intimate partner",
+main.title = "2-ways interaction:condition and fear")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 10(1)
+
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("BPD", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*BPD, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "BPD", jnplot = TRUE, 
+           mod2.labels = c("Mean of BPD - SD", "Mean of BPD", "Mean of BPD + 1 SD"),
+  
+                
+x.label = "Borderline personality traits",
+main.title = "2-ways interaction:condition and BPD")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 10(7)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("BPD", "Condition", "In_End")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(In_End~Condition*BPD, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "BPD", jnplot = TRUE, 
+           mod2.labels = c("Mean of BPD - SD", "Mean of BPD", "Mean of BPD + 1 SD"),
+  
+                
+x.label = "Borderline personality traits",
+main.title = "2-ways interaction:condition and BPD")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+### Figure 11(1)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Anxiety attachment scores towads a mother figure",
+main.title = "2-ways interaction:condition and anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 11(3)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Mom_anxiety", "Condition", "Empowerment_InternalTools")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Empowerment_InternalTools~Condition*Mom_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "Mom_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Anxiety attachment scores towads a mother figure",
+main.title = "2-ways interaction:condition and anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
+### Figure 12(1)
+
+
+
+```{r}
+#issue adjust size of letters 
+data<-rio::import(here::here("Bigdata.sav"))
+```
+
+```{r}
+Plot1data <- data %>% select("Dad_anxiety", "Condition", "Trauma_Knowledge")
+
+```
+
+
+```{r}
+model7MavoJN<-lm(Trauma_Knowledge~Condition*Dad_anxiety, Plot1data)
+```
+
+
+
+```{r echo = FALSE, results= 'hide', fig.height=10, fig.width=19}
+sim_slopes(model7MavoJN, pred = "Condition", modx = "Dad_anxiety", jnplot = TRUE, 
+           mod2.labels = c("Mean of anxiety - SD", "Mean of anxiety", "Mean of anxiety + 1 SD"),
+  
+                
+x.label = "Anxiety attachment scores towads a father figure",
+main.title = "2-ways interaction:condition and anxiety")
+ 
+
+ 
+           
+           
+        
+           
+```
+
+
 
 
 Visualization {.storyboard}
@@ -2875,7 +3585,7 @@ formatted_cors(data) %>% head() %>% kable()
 ```
 
 
-```{r, eval = FALSE}
+```{r}
 #Plotting 
 formatted_cors(data) %>% 
   ggplot(aes(x = measure1, y = measure2, fill = r))+
@@ -2896,18 +3606,17 @@ formatted_cors(data) %>%
 ```
 
 ---
-The first draft
 
-This plot utilizes the function ___ from package ___ to create a correlation table of key variables in the current trauma-informed study. For the research context, please see the research background lab in the navigation bar. ALthough other correlation visualization packages, such as__, are available and easy to use, I selected to use ggplot as it is more flexible in terms of visualziation. A trade off relative to other correlaiton visualization paclages is data preparation for a ggplot (please see embded codes). The plot utilizes geom_title to display correlation strengths with lighter colors indicates higher pearson's coeffificient. The scale_fill_viridis_c color is also utilized such that the plot is colorblinded freindly. 
+This plot utilizes geom_tile to create a correlation table of key variables in the current study (please see Research Background in the navigation bar for research context). Although correlation visualization packages, such as [corrplot](https://cran.r-project.org/web/packages/corrplot/corrplot.pdf), are easy to use, ggplot is more flexible in terms of visual customization. A trade-off relative to other correlation visualization packages is that data preparation for a ggplot can be complicated and takes a longer time to be done (see Source Code). The current plot utilizes geom_title to display correlation strengths with lighter colors indicates a higher Pearson's coefficient. [A Viridis color palette](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) is used for colorblind friendliness. 
 
-The plot posists certain issues. First, some of the y axis labels overlap and should be adjusted. Second, allthough the color might indiciate the stregnth of correlation coefficients for each pair of variables, viewers may better understand if correlation numbers are displayed. To decrease cognitive load, only significant numbers should be provided. In addition, the plot's legend extends beyond the _____. The legend thus could be moved to be under the plot or the plot should be resized. Some axis lables are depecited as abbreviations (e.g., ACE = adverse childhood experience, BPD = borderline personlity disorder traits) and this is not an issue as the Research Background tab in the navigation bar proides the detial about this. The issue listed are fixed in the final plot. 
+The plot posits specific issues. First, some of the y axis labels overlap and should be adjusted. Second, although the colors might indicate the strength of correlation coefficients for each pair of variables, viewers may better understand if correlation numbers are displayed. To decrease cognitive load, only significant numbers should be displayed. Besides, the plot's legend extends beyond the storyboard and could have been moved to be under the plot.  The plot could have been resized to fit the storyboard better. The mentioned issues will be fixed in the final plot. 
 
-### Figure 1 final
+### Plot 1(final)
 
 ```{r, fig.height=10, fig.width=15}
 #add significant correlations in table 
 
-formatted_cors(data) %>%
+p<-formatted_cors(data) %>%
   ggplot(aes(measure1, measure2, fill=r, label=round(r_if_sig,2))) +
   geom_tile() +
   labs(x = NULL, y = NULL, fill = "Pearson's\nCorrelation", title="Correlations of key variables",
@@ -2920,12 +3629,18 @@ formatted_cors(data) %>%
   theme(text=element_text(family="Calibri", size = 15), plot.title = element_text(hjust = 0.5), axis.text.x = element_text(angle = 45, vjust = 0.70))
 ```
 
+```{r}
+p
+```
+
 
 ---
 
-The final version of figure 1 addresses the issues stated in the draft. Correlation coefficients were filled in the geom_tile only among the signifcant pair of variables. The color of the plot was adjusted to enable viewers to see the co-efficient numbers and comprehend the direction of the relationship between two variables easily. Correlations that are closed to zero are highlighed in a lighter color. Corelations that range from zero to one are highlighted in a red shade with darker color represents higher correlation coefficients (closer to 1). The blue shade represents correlation coefficients ranging from zero to minus 1 with darker color represents lower correlation co-efficients (closer to -1.)  The x axis labels was rotated at 45 degree angle such that they do not overlap. The legend was moved to the bottom of the plot such that it does not extend beyong the storyboard space. 
+The final version of plot 1 addresses the issues stated in the draft. Significant correlation coefficients were filled in the geom_tile. The colors of the plot were adjusted to facilitate viewers' understanding of the direction of correlations. Correlation coefficients that are closed to zero are highlighted in a lighter color. Correlation coefficients ranging from zero to one are highlighted in a red shade with darker colors representing higher correlation coefficients (closer to 1). The blue shade represents correlation coefficients ranging from zero to minus 1, with darker colors represent lower correlation coefficients (closer to -1.)  The x-axis labels were rotated at a 45-degree angle such that they do not overlap. The legend was moved to the bottom of the plot to not extend beyond the storyboard space. 
 
-The results in the plot are consistent to trauma related theories. For exmaple, women with a higher level of adverse childhood experiemce (ACE) likely to have more borderline personality disorder (BPD) symptoms, 
+The results in the plot are consistent with trauma-related theories. For example, women with a higher level of adverse childhood experience (ACE) likely to have more borderline personality disorder (BPD) symptoms and fear towards an intimate abusive partner.  
+
+
 ### Plot 2 draft 
 
 ```{r}
@@ -2990,9 +3705,10 @@ p <- ggplot(un_model7Mavo, aes(term, estimate))+
 p
 ```
 
-This plot depicts a draft version of standard errors of a three-way interaction between NFC (i.e., need for cognition), experimental conditions (control versus treatment),and anxiety attachments towards a mother figure. The plot posits some issues. First, estimates are on the y axis, which might be difficult to interpret. The y axis tick mark lables are a bit too numerically apart (i.e., 4 each). Regarding the x axis, the intercept couuld be excluded to decrease cognitive burdern among vieweres. Some labels such as Condition: NFC, which might be difficult to see in the current plot, are also not meaningful as viewers may not uncerstand whetehr the term refers to the treatment or control conditions. Variables on the x axis overlap. The legend is also labeled with the word 'color' rather than a meaningful term such as 'condifence interval.' The mentioned issues will be fixed in the final version of the draft. 
+----
+This plot depicts a draft version of standard errors of a three-way interaction between NFC (i.e., need for cognition), experimental conditions (control versus treatment), and anxiety attachments towards a mother figure. The plot posits some issues. First, estimates are on the y-axis, which might be challenging to interpret. The y-axis tick mark labels are wide in intervals (i.e., four each). Regarding the x-axis, the intercept could have been excluded to decrease viewers' cognitive burden as the parameter is not meaningful for interpretation in the current research context. Some labels, such as "Condition: NFC," which might be challenging to see in the current plot, are also unclear as viewers may not understand whether the term refers to the treatment or control condition. Variables on the x-axis overlap. The legend is also labeled with the word 'color' rather than a meaningful term such as 'confidence interval.' The mentioned issues will be fixed in the final version of the draft. 
 
-
+### Plot 2(final)
 
 ```{r}
 
@@ -3035,18 +3751,20 @@ p<-p+ scale_color_viridis_d("Confidence Interval")+
   geom_point() +
   coord_flip()+
   theme_minimal()+
-  theme(text = element_text(size = 12, family = "Calibri"), plot.title = element_text(hjust = 0.5, color = "#5c8761"))+
-  labs(title = "Standard errors of the interaction between conditions, NFC, and anxiety attachment  \n across 80% CI, 90% CI, and 95%CI", x = "Predictors", y = "Estimates")
-  
+  theme(text = element_text(size = 12, family = "Calibri"), plot.title = element_text(hjust = 0.5, color = "#5c8761"), legend.position = "bottom")+
+  labs(title = "Standard errors of the interaction between conditions, NFC,  \n and anxiety attachment across 80% CI, 90% CI, and 95%CI", x = "Predictors", y = "Estimates")
+ 
 ```
 
 ```{r}
 p
 ```
 
-The final version of Plot2 addrsses the issues mentioned in the draft. The estimates were plotted on the x axis and the terms are plotted on the y axis with the label 'predictors', which enable viewers to interperet the plot easily. The grid background was removed, and the theme_minimal was introduced to exclude unmeaningful components (e.g., the grid color) and decrease cognitive load. A color-blinded friendly package (scale_color_viridis_d) was introduced to illustrate different confidence interval levels. The legend title is 'confidence interval,' which is more meaningful for interpretation than the term 'terms.' The estimates axis tick mark lables are narrower (2.5) relative to those of the draft version (4.0). 
+---
 
-Regarding the interpretation, the plot represents standard erros of the inetraction between treatment (exposure to trauma-informed messages), cognitive information processing, and anxiety attachments towards a mother figure. The interaction term's standard errors approxinately ranged from 0 - 0.625 at the 95% CI and are narrower than the range ta the 80% CI. The main effect of treatment posits closed to -.7.5 to sligthly more than zero at the 95% CI. The SE ranges is narrower at the 80% CI (approximately from -1.25 to close to  -6.25). The standard errors of the main effect of treatment is relatively high, indicating that the main effect of treatment might not be reliable and significant. The interaction effects' standard errors at every confident intervel level are quite low, indicating that the results are significant. The interpretation is consistent with the results shown in Table _ of the Results and Analysis tab. 
+The final version of Plot2 addresses the issues mentioned in the draft. The estimates were plotted on the x-axis, and the terms are plotted on the y axis with the label 'predictors,' which enables viewers to interpret the plot easily. The grid background was removed, and a minimal theme was introduced to exclude unmeaningful components (e.g., the grid color) and decrease the cognitive load. A colorblind-friendly package (scale_color_viridis_d) was presented to illustrate confidence interval levels. The legend title was changed from  'color' in the draft version to 'confidence interval' in the current plot. The term 'terms' was changed to 'predictors' to facilitate viewers' understanding. The axis tick mark labels of estimates are narrower in intervals (2.5) relative to those of the draft version (4.0). 
+
+Regarding the interpretation, the plot represents standard errors (SE) of the interaction between treatment (exposure to trauma-informed messages), cognitive information processing, and anxiety attachment towards a mother figure. The interaction term's standard errors approximately ranged from 0 - 0.625 at the 95% CI and narrower than the 80% CI range. The treatment's main effect is roughly close to -.7.5 to slightly more than zero at the 95% CI. The SE ranges are narrower at the 80% CI (approximately from -1.25 to close to  -6.25). The standard errors of the treatment's main effect are relatively high, indicating that the treatment's main effect might not be reliable and significant. The interaction effects' standard errors at every confident interval level are relatively low, meaning that the results are significant. See the Tables and Results tab for more detail. 
 
 ### Plot 3 draft 
 
@@ -3095,7 +3813,7 @@ labels = c("Less than -1 SD", "-1SD to mean", "Mean to + 1SD", "More than+ 1SD")
 ```
 
 
-```{r, fig.width=4}
+```{r}
 
 
 ggplot(Plot1data, aes(x  = NFC, y = In_End, color = Condition))+
@@ -3113,7 +3831,7 @@ ggplot(Plot1data, aes(x  = NFC, y = In_End, color = Condition))+
  
 ---
 
-The plot reprensents the three-way interaction between conditions and rational thinking across different levels of avoidance attchment towards a mother figure. Although the plot is quite straightforward, it posits certain issues. First, the facet_wrap function allows viewers to see the interaciton of condition and rational thinking across levels of avoidance atatchment but it is unclear regarding the significant point of rational thinking in each facet. Adding a significant line and a label might be useful. Second, the title and subtitle are in the same color. Although the title is bold, some viewers may have a difficulty in separating the subtitle from the title. The scale colors are not colorblind friendly, and the legend labels extend beyond the story board. 
+The plot depicts the three-way interaction between conditions and rational thinking across different avoidance attachment levels towards a mother figure. Although the plot is relatively straightforward for interpretation, it posits specific issues. First, avoidance attachment scores are categorized into four groups,  but the significant point of the interaction between condition and rational thinking in each attachment level is unclear. Adding a significant line and a text label might be helpful. Second, the title and subtitle are in the same color. Although the title is bold, some viewers may have difficulty separating the subtitle from the title. The scale colors are not colorblind-friendly, and the legend labels extend beyond the storyboard. Those issues will be fixed in the final draft.
 
 
 ### Plot 3 final 
@@ -3182,21 +3900,27 @@ ggplot(Plot1data, aes(x  = NFC, y = In_End, color = Condition))+
   theme_minimal()+
   geom_text(aes(x = NFC, y = In_End, label = txt),
             hjust = 0,
+            size = 3.5,
             data = txt_data,
             inherit.aes = FALSE) +
   labs(x =  "Rational thinking", 
        y = "Leaving intention",  
-       title = "The interaction effects of conditions, avoidance attachment, and \n thinking pattern on leaving intention", 
-       subtitle = "Avoidance attachment scores towards a mother figure")+
-  theme(text = element_text(family = "Calibri"), plot.title = element_text(face = "bold", hjust = 0.5, size = 12, color = "#26734d"))+
+       title = "The interaction effects of conditions, avoidance attachment, and \n thinking pattern on leaving intention",
+       subtitle = "Avoidance attachment scores towards a mother figure",
+       caption = "Sig indicates the initial point of the significant interation \n between condition and rational thinking for significant avoidance facets")+
+  theme(text = element_text(family = "Calibri", size = 10), plot.title = element_text(face = "bold", hjust = 0.5, size = 12, color = "#26734d"), legend.position = "bottom", plot.caption = element_text(hjust = 0))+
    geom_vline(data = filter(Plot1data, Mom_avoidance == "Less than -1 SD"), aes(xintercept = 3.93), color = "black", linetype = "dotted")+
   geom_vline(data = filter(Plot1data, Mom_avoidance == "-1SD to mean"), aes(xintercept = 3.93), color = "black", linetype = "dotted")+
    geom_vline(data = filter(Plot1data, Mom_avoidance == "Mean to + 1SD"), aes(xintercept = 3.93), color = "black", linetype = "dotted")
 ```
 
  
----
-The final version of plot 3
+----
+
+The final version of plot 3 addresses issues mentioned in the draft. Significant lines were added across three facets of avoidance attachment to represent significant points of the interaction between condition and rational thinking with the 'sig' text labels. The legend was moved to under the plot such that the legend label does not extend the storyline. The colors of the title and subtitle are different for easy categorization. The scale colors were adjusted to be colorblind-friendly. A caption was added to clarify the meaning of the word 'sig' in each significant avoidance facet.  
+
+Regarding the interpretation, the plot represents the three-way interactions between conditions, rational thinking, and avoidance attachments towards a mother figure. According to the visual, conditions significantly interact with rational thinking in predicting women's intention to terminate an abusive relationship only among women with avoidance scores less than -1SD, 1SD to the mean, and the mean to +1SD. At the high level of avoidance attachment (i.e., more than 1SD), conditions do not significantly interact with rational thinking in predicting leaving intention. Among the significant avoidance attachment regions, the treatment condition significantly predicted leaving intention more than the control condition at the rational thinking level close to 4. 
+ 
 
 Path diagrams {.storyboard}
 =====
@@ -3218,7 +3942,7 @@ data$Avoid<-data$Mom_avoidance
 
 
 
-```{r, results = 'hide'}
+```{r}
 model<-lm(Int~TIM*NFC*Avoid, data = data)
 #issue-cant add label here lbls<-c("Condition", "NFC", "Avoidance", "Intention")
 
@@ -3313,20 +4037,8 @@ ggplot(Plot1data, aes(x  = NFC, y = In_End, color = Condition))+
    geom_vline(data = filter(Plot1data, Mom_avoidance == "Mean to + 1SD"), aes(xintercept = 3.93), color = "black", linetype = "dotted")
 ```
 
- 
 
----
-
-Comment about the plot
-
-
-
-### Mother anxiety 
-
-
-
-
-Visualization (2 way): {.storyboard}
+Visualization (2 way){.storyboard}
 ======
 
 ### Adverse childhood experience
